@@ -1,0 +1,44 @@
+{% extends 'dictionaryApp/main.html' %}
+{% load static %}
+
+
+{% block title %}
+   SDictionary-Home
+{% endblock title %}
+
+
+{% block style %}
+       
+
+{% endblock style %}
+    
+    
+    
+
+{% block content %}
+    <div class="container my-5 ">
+        <h1 style="text-align: center;" class="heading">Search Word</h1>
+
+        <form method="GET" action="/results" >
+           
+            <div class="row p-2 justify-content-center" >
+
+                <div class="col-md-3 my-2">
+                    <input type="text" class="form-control" name="word" placeholder="Enter any word">
+                </div>
+                <div class="col-md-2 my-2">
+                    <button type="submit" class="btn btn-success mb-3">Search </button>
+                </div>
+                
+            </div>
+
+        </form>
+        
+        
+            
+        
+        
+            
+    </div>
+{% endblock content %}
+    

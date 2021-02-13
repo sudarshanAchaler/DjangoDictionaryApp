@@ -1,0 +1,74 @@
+{% extends 'dictionaryApp/main.html' %}
+{% load static %}
+
+
+{% block title %}
+SDictionary-Search Results
+{% endblock title %}
+
+
+{% block style %}
+
+audio:focus {
+    outline: none;
+}
+
+    
+       
+
+{% endblock style %}
+    
+    
+    
+
+{% block content %}
+    <div class="container my-5">
+        <h1 style="text-align: center;" class="heading">Search Word</h1>
+
+        <form method="GET" action="/results">
+           
+            <div class="row p-2 justify-content-center" >
+
+                <div class="col-md-3 my-2">
+                    <input type="text" class="form-control" name="word" placeholder="Enter any word">
+                </div>
+                <div class="col-md-2 my-2">
+                    <button type="submit" class="btn btn-success mb-3">Search </button>
+                </div>
+                
+            </div>
+
+        </form>
+        
+        
+            
+
+            <div class="row box-element p-md-5 p-3">
+                <h3>Word : {{ word }} </h3>
+                
+
+                <div class="col-md-6 mt-5">
+                    <h4> <strong>Part of Speech :</strong> <h5>{{ pOS }}</h5></h4><br>
+                    <h4><strong>Definition : </strong><h5>{{ definition }}</h5></h4><br>
+                    <h4><strong>Example : </strong><h5>{{ example }}</h5></h4><br>
+                    <h4><strong>Audio Sample : </strong> </h4>
+                    <audio controls >
+                        <source src="{{ audio }}" type="audio/mp3">
+                        <source src="{% static 'audio/notavailable.mp3' %}" type="audio/mp3">Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h4><strong>Synonyms : </strong></h4>
+                    <ul class="list-group list-group-flush">
+                        {%for synonym in synonyms %}
+                        <li class="list-group-item"><h5>{{ synonym }} </h5></li>
+                        {% endfor %}
+                      </ul>
+                </div>
+            </div>   
+        
+        
+            
+    </div>
+{% endblock content %}
+    
